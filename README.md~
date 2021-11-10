@@ -1,0 +1,44 @@
+
+# Table of Contents
+
+1.  [Topsy-Turvy](#org723e184)
+    1.  [Summary](#orgdcf3d8d)
+    2.  [Files and Folders](#org0dba9b6)
+
+
+<a id="org723e184"></a>
+
+# Topsy-Turvy
+
+
+<a id="orgdcf3d8d"></a>
+
+## Summary
+
+Topsy-Turvy is a novel method that synthesizes protein sequence information and 
+inherent network structures transferrable across species to construct and/or enrich the PPI 
+network for the target species.  
+
+For more information about the model architectures (and downloading the pretained models
+and datasets), go to [[]].
+
+
+<a id="org0dba9b6"></a>
+
+## Files and Folders
+
+All the relevant test and evaluation codes are found inside the topsy<sub>turvy</sub> folder. 
+The major files for training/evaluation are:
+
+1.  embedding.py
+2.  train.py
+3.  evaluate.py
+
+\`embedding.py\` is used to produce the PLM embeddings from the input sequence file in 
+fasta format. It can be run using
+
+    python embedding.py --seqs=<SEQ-FASTA-FILE> --o=<OUTPUT-DEST-FILE> --d=<GPU-DEVICE-ID>
+
+\`train.py\` is used to train the model, given the sequence and network information for a source 
+network. It can be run using
+

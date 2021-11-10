@@ -187,10 +187,10 @@ def parse_args():
     #parser.add_argument('--config', help='yaml config file - command line options supercede config file')
 
     # Data
-    parser.add_argument('--pos-pairs', help='list of true positive pairs')
-    parser.add_argument('--neg-pairs', help='list of true negative (or random) pairs')
-    parser.add_argument('--pos-test',  help='list of true positive pairs for evaluation')
-    parser.add_argument('--neg-test',  help='list of true negative (or random) pairs for evaluation')
+    parser.add_argument('--pos-pairs', default=ptr_default, help='list of true positive pairs')
+    parser.add_argument('--neg-pairs', default=ntr_default, help='list of true negative (or random) pairs')
+    parser.add_argument('--pos-test', default=pte_default, help='list of true positive pairs for evaluation')
+    parser.add_argument('--neg-test', default=nte_default, help='list of true negative (or random) pairs for evaluation')
     parser.add_argument('--embedding', default=emb_default, help='h5py path containing embedded sequences')
     parser.add_argument('--augment',action='store_true',help='set flag to augment data by adding (B A) for all pairs (A B)')
     #parser.add_argument('--embedding-size', default=100, help='dimension of embeddings (default: 100)')
@@ -199,7 +199,7 @@ def parse_args():
     # Embedding model
     parser.add_argument('--dumb-embed-switch',action='store_true', help='use last 100 dimensions of embedding naively')
     parser.add_argument('--projection-dim', type=int, default=100, help='dimension of embedding projection layer (default: 100)')
-    parser.add_argument('--dropout-p', type=float, default=0.2, help='parameter p for embedding dropout layer (default: 0.2)')
+    parser.add_argument('--dropout-p', type=float, default=0.5, help='parameter p for embedding dropout layer (default: 0.5)')
 
     # Contact model
     parser.add_argument('--hidden-dim', type=int, default=50, help='number of hidden units for comparison layer in contact prediction (default: 50)')
@@ -219,7 +219,7 @@ def parse_args():
     parser.add_argument('--batch-size', type=int, default=25, help='minibatch size (default: 25)')
     parser.add_argument('--weight-decay', type=float, default=0, help='L2 regularization (default: 0)')
     parser.add_argument('--lr', type=float, default=0.001, help='learning rate (default: 0.001)')
-    parser.add_argument('--lambda', dest='lambda_', type=float, default=0.05, help='weight on the similarity objective (default: 0.65)')
+    parser.add_argument('--lambda', dest='lambda_', type=float, default=0.65, help='weight on the similarity objective (default: 0.65)')
     parser.add_argument('--pred-skew',type=float,default=0.5,help='raise predictions to pred_skew before computing loss (default: 0.5)')
     parser.add_argument('--skew-alpha',type=float,default=0,help='p = (alpha)(phat) + (1-alpha)(phat ** skew) (default: 0)')
 
