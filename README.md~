@@ -1,21 +1,18 @@
 
 # Table of Contents
 
-1.  [Topsy-Turvy](#org4b6703e)
-    1.  [Summary](#org42ab231)
-    2.  [Files and Folders](#orgd134278)
-        1.  [Generating PLM Embeddings](#org5d640cb)
-        2.  [Training the Model](#org27e4f7a)
-        3.  [Evaluating Performance](#orgccdb238)
+1.  [Topsy-Turvy](#orgc460c97)
+    1.  [Summary](#org74e45d5)
+    2.  [Files and Folders](#orgb503c2b)
 
 
 
-<a id="org4b6703e"></a>
+<a id="orgc460c97"></a>
 
 # Topsy-Turvy
 
 
-<a id="org42ab231"></a>
+<a id="org74e45d5"></a>
 
 ## Summary
 
@@ -27,21 +24,16 @@ For more information about the model architectures (and downloading the pretaine
 and datasets), go to [[]].
 
 
-<a id="orgd134278"></a>
+<a id="orgb503c2b"></a>
 
 ## Files and Folders
 
-All the relevant test and evaluation codes are found inside the \`topsy\_turvy\` folder. 
+All the relevant test and evaluation codes are found inside the topsy\\\_turvy folder. 
 The major files for training/evaluation are:
 
 1.  embedding.py
 2.  train.py
 3.  evaluate.py
-
-
-<a id="org5d640cb"></a>
-
-### Generating PLM Embeddings
 
 \`embedding.py\` is used to produce the PLM embeddings from the input sequence file in 
 fasta format. It can be run using
@@ -50,11 +42,6 @@ fasta format. It can be run using
           [--seqs SEQ-FASTA-FILE] 
           [--o OUTPUT-DEST-FILE]
           [--d GPU-DEVICE-ID]
-
-
-<a id="org27e4f7a"></a>
-
-### Training the Model
 
 \`train.py\` is used to train the model, given the sequence and network information for a source 
 network. It can be run using
@@ -92,23 +79,5 @@ network. It can be run using
           [-d DEVICE]
           [--checkpoint CHECKPOINT] 
 
-In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\_glider\` option in the train.py.
-
-
-<a id="orgccdb238"></a>
-
-### Evaluating Performance
-
-\`evaluate.py\` is used to perform evaluation, given the positive and negative test examples. It can be run using
-
-    python evaluate.py
-           [--model MODEL]                        # Model Location 
-           [--pos-pairs POS_PAIRS]
-           [--neg-pairs NEG_PAIRS]                # Positive and Negative Pairs
-           [--embeddings EMBED]                   # PLM embedding file
-           [--fasta FASTA]                        # If there is no PLM file, use FASTA to generate the PLM internally
-           [--outfile OUTFILE]                    # Output prefix
-           [--device DEVICE]                      # GPU device
-           [--plot-prediction-distributions]
-           [--plot-curves]
+In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\\\_glider\` option in the train.py.
 
