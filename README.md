@@ -1,21 +1,22 @@
 
 # Table of Contents
 
-1.  [Topsy-Turvy](#org4b6703e)
-    1.  [Summary](#org42ab231)
-    2.  [Files and Folders](#orgd134278)
-        1.  [Generating PLM Embeddings](#org5d640cb)
-        2.  [Training the Model](#org27e4f7a)
-        3.  [Evaluating Performance](#orgccdb238)
+1.  [Topsy-Turvy](#orgfd11193)
+    1.  [Summary](#org9484298)
+    2.  [Files and Folders](#orgdce4c0d)
+        1.  [Generating PLM Embeddings](#orgda00d19)
+        2.  [Training the Model](#org528f09d)
+        3.  [Evaluating Performance](#orgb61e327)
+    3.  [Saved Models](#orge7fe3d1)
 
 
 
-<a id="org4b6703e"></a>
+<a id="orgfd11193"></a>
 
 # Topsy-Turvy
 
 
-<a id="org42ab231"></a>
+<a id="org9484298"></a>
 
 ## Summary
 
@@ -27,7 +28,7 @@ For more information about the model architectures (and downloading the pretaine
 and datasets), go to [[]].
 
 
-<a id="orgd134278"></a>
+<a id="orgdce4c0d"></a>
 
 ## Files and Folders
 
@@ -39,7 +40,7 @@ The major files for training/evaluation are:
 3.  evaluate.py
 
 
-<a id="org5d640cb"></a>
+<a id="orgda00d19"></a>
 
 ### Generating PLM Embeddings
 
@@ -52,7 +53,7 @@ fasta format. It can be run using
           [--d GPU-DEVICE-ID]
 
 
-<a id="org27e4f7a"></a>
+<a id="org528f09d"></a>
 
 ### Training the Model
 
@@ -95,7 +96,7 @@ network. It can be run using
 In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\_glider\` option in the train.py.
 
 
-<a id="orgccdb238"></a>
+<a id="orgb61e327"></a>
 
 ### Evaluating Performance
 
@@ -111,4 +112,11 @@ In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\_glider\
            [--device DEVICE]                      # GPU device
            [--plot-prediction-distributions]
            [--plot-curves]
+
+
+<a id="orge7fe3d1"></a>
+
+## Saved Models
+
+The best pre-trained models for D-SCRIPT and Topsy-Turvy are provided in the folder \`Pretrained-Models\` 
 

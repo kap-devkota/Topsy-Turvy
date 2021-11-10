@@ -89,3 +89,7 @@ python evaluate.py
        [--plot-prediction-distributions]
        [--plot-curves]
 #+END_SRC
+
+** Saved Models
+
+The best pre-trained models for D-SCRIPT and Topsy-Turvy are provided in the folder `Pretrained-Models` 
