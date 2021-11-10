@@ -1,17 +1,17 @@
 
 # Table of Contents
 
-1.  [Topsy-Turvy](#orgfb12c61)
-    1.  [Summary](#orgad8f434)
-    2.  [Files and Folders](#orgab55b6b)
+1.  [Topsy-Turvy](#org1459549)
+    1.  [Summary](#orgb2e18b4)
+    2.  [Files and Folders](#orgcefa8f4)
 
 
-<a id="orgfb12c61"></a>
+<a id="org1459549"></a>
 
 # Topsy-Turvy
 
 
-<a id="orgad8f434"></a>
+<a id="orgb2e18b4"></a>
 
 ## Summary
 
@@ -23,11 +23,11 @@ For more information about the model architectures (and downloading the pretaine
 and datasets), go to [[]].
 
 
-<a id="orgab55b6b"></a>
+<a id="orgcefa8f4"></a>
 
 ## Files and Folders
 
-All the relevant test and evaluation codes are found inside the topsy<sub>turvy</sub> folder. 
+All the relevant test and evaluation codes are found inside the topsy\\<sub>turvy</sub> folder. 
 The major files for training/evaluation are:
 
 1.  embedding.py
@@ -37,7 +37,10 @@ The major files for training/evaluation are:
 \`embedding.py\` is used to produce the PLM embeddings from the input sequence file in 
 fasta format. It can be run using
 
-    python embedding.py --seqs=<SEQ-FASTA-FILE> --o=<OUTPUT-DEST-FILE> --d=<GPU-DEVICE-ID>
+    python embedding.py 
+          [--seqs SEQ-FASTA-FILE] 
+          [--o OUTPUT-DEST-FILE]
+          [--d GPU-DEVICE-ID]
 
 \`train.py\` is used to train the model, given the sequence and network information for a source 
 network. It can be run using
@@ -55,23 +58,25 @@ network. It can be run using
           [--hidden-dim HIDDEN_DIM]             # Number of hidden units for comparison layer in contact prediction
           [--kernel-width KERNEL_WIDTH]         # The width of the conv. filter for contact prediction
           [--use-w]                             # Use the weight matrix in the interaction prediction or not
-          [--do-pool]                           # 
-          [--pool-width POOL_WIDTH] 
-          [--sigmoid]
-          [--negative-ratio NEGATIVE_RATIO] 
-          [--epoch-scale EPOCH_SCALE]
-          [--num-epochs NUM_EPOCHS] 
-          [--batch-size BATCH_SIZE]
-          [--weight-decay WEIGHT_DECAY] 
-          [--lr LR] 
-          [--lambda LAMBDA_]
-          [--pred-skew PRED_SKEW] 
-          [--skew-alpha SKEW_ALPHA] 
-          [--use_glider]
-          [--glider_param GLIDER_PARAM] 
-          [--glider_thresh GLIDER_THRESH]
+          [--do-pool]                           # Use the max pool layer
+          [--pool-width POOL_WIDTH]             # The size of the max pool in the interaction model
+          [--sigmoid]                           # Use sigmoid activation at the end of the interaction model: Default false
+          [--negative-ratio NEGATIVE_RATIO]     # Number of negative training samples for each positive training sample
+          [--epoch-scale EPOCH_SCALE]           # Report the heldout performance every multiple of this many epochs 
+          [--num-epochs NUM_EPOCHS]             # Total number of epochs
+          [--batch-size BATCH_SIZE]             # Minibatch size 
+          [--weight-decay WEIGHT_DECAY]         # L2 regularization
+          [--lr LR]                             # Learning rate
+          [--lambda LAMBDA_]                    # The weight on the similarity objective
+          # Use these parameter for Topsy-turvy training 
+          [--use_glider]                        # Use this to train with Topsy-Turvy.
+          [--glider_param GLIDER_PARAM]         # g_t param: default 0.2 
+          [--glider_thresh GLIDER_THRESH]       # g_p param: Default 92.5
+          # Output and device information
           [-o OUTPUT] 
           [--save-prefix SAVE_PREFIX] 
           [-d DEVICE]
           [--checkpoint CHECKPOINT] 
+
+In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\\<sub>glider</sub>\` option in the train.py.
 

@@ -1,3 +1,4 @@
+#+OPTIONS: ^:nil
 * Topsy-Turvy 
 ** Summary
 Topsy-Turvy is a novel method that synthesizes protein sequence information and 

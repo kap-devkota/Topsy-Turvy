@@ -1,17 +1,18 @@
 
 # Table of Contents
 
-1.  [Topsy-Turvy](#org1459549)
-    1.  [Summary](#orgb2e18b4)
-    2.  [Files and Folders](#orgcefa8f4)
+1.  [Topsy-Turvy](#orgc460c97)
+    1.  [Summary](#org74e45d5)
+    2.  [Files and Folders](#orgb503c2b)
 
 
-<a id="org1459549"></a>
+
+<a id="orgc460c97"></a>
 
 # Topsy-Turvy
 
 
-<a id="orgb2e18b4"></a>
+<a id="org74e45d5"></a>
 
 ## Summary
 
@@ -23,11 +24,11 @@ For more information about the model architectures (and downloading the pretaine
 and datasets), go to [[]].
 
 
-<a id="orgcefa8f4"></a>
+<a id="orgb503c2b"></a>
 
 ## Files and Folders
 
-All the relevant test and evaluation codes are found inside the topsy\\<sub>turvy</sub> folder. 
+All the relevant test and evaluation codes are found inside the topsy\\\_turvy folder. 
 The major files for training/evaluation are:
 
 1.  embedding.py
@@ -78,5 +79,5 @@ network. It can be run using
           [-d DEVICE]
           [--checkpoint CHECKPOINT] 
 
-In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\\<sub>glider</sub>\` option in the train.py.
+In order to use the \`train.py\` in Topsy-Turvy mode, add \`&#x2013;use\\\_glider\` option in the train.py.
 
