@@ -11,14 +11,14 @@ and datasets), go to [[]].
 
 ** Files and Folders
 
-All the relevant test and evaluation codes are found inside the topsy\_turvy folder. 
+All the relevant test and evaluation codes are found inside the `topsy_turvy` folder. 
 The major files for training/evaluation are:
 
 1. embedding.py  
 2. train.py
 3. evaluate.py
 
-
+*** Generating PLM Embeddings
 
 `embedding.py` is used to produce the PLM embeddings from the input sequence file in 
 fasta format. It can be run using
@@ -30,6 +30,8 @@ python embedding.py
       [--d GPU-DEVICE-ID]
 #+END_SRC
 
+
+*** Training the Model
 
 `train.py` is used to train the model, given the sequence and network information for a source 
 network. It can be run using
@@ -69,6 +71,21 @@ python train.py [-h]
       [--checkpoint CHECKPOINT] 
 #+END_SRC
 
-In order to use the `train.py` in Topsy-Turvy mode, add `--use\_glider` option in the train.py.
+In order to use the `train.py` in Topsy-Turvy mode, add `--use_glider` option in the train.py.
 
+*** Evaluating Performance
 
+`evaluate.py` is used to perform evaluation, given the positive and negative test examples. It can be run using
+
+#+BEGIN_SRC bash
+python evaluate.py
+       [--model MODEL]                        # Model Location 
+       [--pos-pairs POS_PAIRS]
+       [--neg-pairs NEG_PAIRS]                # Positive and Negative Pairs
+       [--embeddings EMBED]                   # PLM embedding file
+       [--fasta FASTA]                        # If there is no PLM file, use FASTA to generate the PLM internally
+       [--outfile OUTFILE]                    # Output prefix
+       [--device DEVICE]                      # GPU device
+       [--plot-prediction-distributions]
+       [--plot-curves]
+#+END_SRC
