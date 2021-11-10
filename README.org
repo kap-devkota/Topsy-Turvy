@@ -10,7 +10,7 @@ and datasets), go to [[]].
 
 ** Files and Folders
 
-All the relevant test and evaluation codes are found inside the topsy_turvy folder. 
+All the relevant test and evaluation codes are found inside the topsy\_turvy folder. 
 The major files for training/evaluation are:
 
 1. embedding.py  
@@ -23,7 +23,10 @@ The major files for training/evaluation are:
 fasta format. It can be run using
 
 #+BEGIN_SRC bash
-      python embedding.py --seqs=<SEQ-FASTA-FILE> --o=<OUTPUT-DEST-FILE> --d=<GPU-DEVICE-ID>
+python embedding.py 
+      [--seqs SEQ-FASTA-FILE] 
+      [--o OUTPUT-DEST-FILE]
+      [--d GPU-DEVICE-ID]
 #+END_SRC
 
 
@@ -48,19 +51,23 @@ python train.py [-h]
       [--pool-width POOL_WIDTH]             # The size of the max pool in the interaction model
       [--sigmoid]                           # Use sigmoid activation at the end of the interaction model: Default false
       [--negative-ratio NEGATIVE_RATIO]     # Number of negative training samples for each positive training sample
-      [--epoch-scale EPOCH_SCALE]           # 
-      [--num-epochs NUM_EPOCHS] 
-      [--batch-size BATCH_SIZE]
-      [--weight-decay WEIGHT_DECAY] 
-      [--lr LR] 
-      [--lambda LAMBDA_]
-      [--pred-skew PRED_SKEW] 
-      [--skew-alpha SKEW_ALPHA] 
-      [--use_glider]
-      [--glider_param GLIDER_PARAM] 
-      [--glider_thresh GLIDER_THRESH]
+      [--epoch-scale EPOCH_SCALE]           # Report the heldout performance every multiple of this many epochs 
+      [--num-epochs NUM_EPOCHS]             # Total number of epochs
+      [--batch-size BATCH_SIZE]             # Minibatch size 
+      [--weight-decay WEIGHT_DECAY]         # L2 regularization
+      [--lr LR]                             # Learning rate
+      [--lambda LAMBDA_]                    # The weight on the similarity objective
+      # Use these parameter for Topsy-turvy training 
+      [--use_glider]                        # Use this to train with Topsy-Turvy.
+      [--glider_param GLIDER_PARAM]         # g_t param: default 0.2 
+      [--glider_thresh GLIDER_THRESH]       # g_p param: Default 92.5
+      # Output and device information
       [-o OUTPUT] 
       [--save-prefix SAVE_PREFIX] 
       [-d DEVICE]
       [--checkpoint CHECKPOINT] 
 #+END_SRC
+
+In order to use the `train.py` in Topsy-Turvy mode, add `--use\_glider` option in the train.py.
+
+

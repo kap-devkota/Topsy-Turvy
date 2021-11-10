@@ -242,7 +242,7 @@ def parse_args():
     parser.add_argument(
         "--glider_thresh",
         type = float,
-        default= 95,
+        default= 92.5,
         help="Glider Cutoff Threshold",
     )
 
