@@ -187,10 +187,10 @@ def parse_args():
     #parser.add_argument('--config', help='yaml config file - command line options supercede config file')
 
     # Data
-    parser.add_argument('--pos-pairs', help='list of true positive pairs')
-    parser.add_argument('--neg-pairs', help='list of true negative (or random) pairs')
-    parser.add_argument('--pos-test',  help='list of true positive pairs for evaluation')
-    parser.add_argument('--neg-test',  help='list of true negative (or random) pairs for evaluation')
+    parser.add_argument('--pos-pairs', default = ptr_default, help='list of true positive pairs')
+    parser.add_argument('--neg-pairs', default = ntr_default, help='list of true negative (or random) pairs')
+    parser.add_argument('--pos-test',  default = pte_default, help='list of true positive pairs for evaluation')
+    parser.add_argument('--neg-test',  default = nte_default, help='list of true negative (or random) pairs for evaluation')
     parser.add_argument('--embedding', default=emb_default, help='h5py path containing embedded sequences')
     parser.add_argument('--augment',action='store_true',help='set flag to augment data by adding (B A) for all pairs (A B)')
     #parser.add_argument('--embedding-size', default=100, help='dimension of embeddings (default: 100)')
