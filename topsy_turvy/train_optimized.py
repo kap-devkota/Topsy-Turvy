@@ -74,9 +74,9 @@ def interaction_grad(model, n0, n1, y, tensors, use_cuda, glider_map = None, gli
         for m in [p, q]:
             if m not in glider_map:
                 return 0
-            p_ = glider_map[p]
-            q_ = glider_map[q]
-            return glider_mat[p_, q_]
+        p_ = glider_map[p]
+        q_ = glider_map[q]
+        return glider_mat[p_, q_]
     
     c_map_mag, p_hat = predict_cmap_interaction(model, n0, n1, tensors, use_cuda)
     if use_cuda:

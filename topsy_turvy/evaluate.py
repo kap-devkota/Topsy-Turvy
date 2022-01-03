@@ -103,10 +103,13 @@ else:
     print('# Using CPU')
 
 model_path = args.model
+model      = torch.load(model_path)
+model.glider_mat = None
+model.glider_map = None
 if use_cuda:
-    model = torch.load(model_path).cuda()
+    model = model.cuda()
 else:
-    model = torch.load(model_path).cpu()
+    model = model.cpu()
     model.use_cuda = False
 
 # Embed Sequences
